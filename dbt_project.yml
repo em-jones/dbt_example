@@ -1,0 +1,139 @@
+name: airbyte_utils
+version: '1.0'
+config-version: 2
+profile: normalize
+model-paths:
+- models
+docs-paths:
+- docs
+analysis-paths:
+- analysis
+test-paths:
+- tests
+seed-paths:
+- data
+macro-paths:
+- macros
+target-path: ../build
+log-path: ../logs
+packages-install-path: '../dbt_packages'
+clean-targets:
+- build
+- dbt_modules
+quoting:
+  database: true
+  schema: false
+  identifier: true
+models:
+  airbyte_utils:
+    +materialized: table
+    generated:
+      airbyte_ctes:
+        +tags: airbyte_internal_cte
+        +materialized: ephemeral
+      airbyte_incremental:
+        +tags: incremental_tables
+        +materialized: incremental
+        +on_schema_change: sync_all_columns
+      airbyte_tables:
+        +tags: normalized_tables
+        +materialized: table
+      airbyte_views:
+        +tags: airbyte_internal_views
+        +materialized: view
+dispatch:
+- macro_namespace: dbt_utils
+  search_order:
+  - airbyte_utils
+  - dbt_utils
+vars:
+  json_column: _airbyte_data
+  models_to_source:
+    staff_list_ab1: public._airbyte_raw_staff_list
+    staff_list_ab2: public._airbyte_raw_staff_list
+    staff_list_ab3: public._airbyte_raw_staff_list
+    staff_list: public._airbyte_raw_staff_list
+    film_list_ab1: public._airbyte_raw_film_list
+    film_list_ab2: public._airbyte_raw_film_list
+    film_list_ab3: public._airbyte_raw_film_list
+    film_list: public._airbyte_raw_film_list
+    actor_ab1: public._airbyte_raw_actor
+    actor_ab2: public._airbyte_raw_actor
+    actor_ab3: public._airbyte_raw_actor
+    actor: public._airbyte_raw_actor
+    category_ab1: public._airbyte_raw_category
+    category_ab2: public._airbyte_raw_category
+    category_ab3: public._airbyte_raw_category
+    category: public._airbyte_raw_category
+    customer_ab1: public._airbyte_raw_customer
+    customer_ab2: public._airbyte_raw_customer
+    customer_ab3: public._airbyte_raw_customer
+    customer: public._airbyte_raw_customer
+    payment_ab1: public._airbyte_raw_payment
+    payment_ab2: public._airbyte_raw_payment
+    payment_ab3: public._airbyte_raw_payment
+    payment: public._airbyte_raw_payment
+    nicer_but_slower_film_list_ab1: public._airbyte_raw_nicer_but_slower_film_list
+    nicer_but_slower_film_list_ab2: public._airbyte_raw_nicer_but_slower_film_list
+    nicer_but_slower_film_list_ab3: public._airbyte_raw_nicer_but_slower_film_list
+    nicer_but_slower_film_list: public._airbyte_raw_nicer_but_slower_film_list
+    city_ab1: public._airbyte_raw_city
+    city_ab2: public._airbyte_raw_city
+    city_ab3: public._airbyte_raw_city
+    city: public._airbyte_raw_city
+    film_actor_ab1: public._airbyte_raw_film_actor
+    film_actor_ab2: public._airbyte_raw_film_actor
+    film_actor_ab3: public._airbyte_raw_film_actor
+    film_actor: public._airbyte_raw_film_actor
+    film_category_ab1: public._airbyte_raw_film_category
+    film_category_ab2: public._airbyte_raw_film_category
+    film_category_ab3: public._airbyte_raw_film_category
+    film_category: public._airbyte_raw_film_category
+    country_ab1: public._airbyte_raw_country
+    country_ab2: public._airbyte_raw_country
+    country_ab3: public._airbyte_raw_country
+    country: public._airbyte_raw_country
+    address_ab1: public._airbyte_raw_address
+    address_ab2: public._airbyte_raw_address
+    address_ab3: public._airbyte_raw_address
+    address: public._airbyte_raw_address
+    actor_info_ab1: public._airbyte_raw_actor_info
+    actor_info_ab2: public._airbyte_raw_actor_info
+    actor_info_ab3: public._airbyte_raw_actor_info
+    actor_info: public._airbyte_raw_actor_info
+    inventory_ab1: public._airbyte_raw_inventory
+    inventory_ab2: public._airbyte_raw_inventory
+    inventory_ab3: public._airbyte_raw_inventory
+    inventory: public._airbyte_raw_inventory
+    sales_by_store_ab1: public._airbyte_raw_sales_by_store
+    sales_by_store_ab2: public._airbyte_raw_sales_by_store
+    sales_by_store_ab3: public._airbyte_raw_sales_by_store
+    sales_by_store: public._airbyte_raw_sales_by_store
+    rental_ab1: public._airbyte_raw_rental
+    rental_ab2: public._airbyte_raw_rental
+    rental_ab3: public._airbyte_raw_rental
+    rental: public._airbyte_raw_rental
+    sales_by_film_category_ab1: public._airbyte_raw_sales_by_film_category
+    sales_by_film_category_ab2: public._airbyte_raw_sales_by_film_category
+    sales_by_film_category_ab3: public._airbyte_raw_sales_by_film_category
+    sales_by_film_category: public._airbyte_raw_sales_by_film_category
+    customer_list_ab1: public._airbyte_raw_customer_list
+    customer_list_ab2: public._airbyte_raw_customer_list
+    customer_list_ab3: public._airbyte_raw_customer_list
+    customer_list: public._airbyte_raw_customer_list
+    staff_ab1: public._airbyte_raw_staff
+    staff_ab2: public._airbyte_raw_staff
+    staff_ab3: public._airbyte_raw_staff
+    staff: public._airbyte_raw_staff
+    language_ab1: public._airbyte_raw_language
+    language_ab2: public._airbyte_raw_language
+    language_ab3: public._airbyte_raw_language
+    language: public._airbyte_raw_language
+    store_ab1: public._airbyte_raw_store
+    store_ab2: public._airbyte_raw_store
+    store_ab3: public._airbyte_raw_store
+    store: public._airbyte_raw_store
+    film_ab1: public._airbyte_raw_film
+    film_ab2: public._airbyte_raw_film
+    film_ab3: public._airbyte_raw_film
+    film: public._airbyte_raw_film

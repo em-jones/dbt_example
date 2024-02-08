@@ -1,0 +1,30 @@
+version: 2
+sources:
+- name: public
+  quoting:
+    database: true
+    schema: false
+    identifier: false
+  tables:
+  - name: _airbyte_raw_actor
+  - name: _airbyte_raw_actor_info
+  - name: _airbyte_raw_address
+  - name: _airbyte_raw_category
+  - name: _airbyte_raw_city
+  - name: _airbyte_raw_country
+  - name: _airbyte_raw_customer
+  - name: _airbyte_raw_customer_list
+  - name: _airbyte_raw_film
+  - name: _airbyte_raw_film_actor
+  - name: _airbyte_raw_film_category
+  - name: _airbyte_raw_film_list
+  - name: _airbyte_raw_inventory
+  - name: _airbyte_raw_language
+  - name: _airbyte_raw_nicer_but_slower_film_list
+  - name: _airbyte_raw_payment
+  - name: _airbyte_raw_rental
+  - name: _airbyte_raw_sales_by_film_category
+  - name: _airbyte_raw_sales_by_store
+  - name: _airbyte_raw_staff
+  - name: _airbyte_raw_staff_list
+  - name: _airbyte_raw_store

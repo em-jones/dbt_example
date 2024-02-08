@@ -1,0 +1,1 @@
+{"ssl":false,"host":"localhost","port":6543,"schema":"public","database":"dest","password":"password","ssl_mode":{"mode":"disable"},"username":"dest","tunnel_method":{"tunnel_method":"NO_TUNNEL"}}
